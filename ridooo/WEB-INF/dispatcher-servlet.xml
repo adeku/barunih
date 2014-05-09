@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<context:component-scan base-package="verse,ada" />
+
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
+
+	<mvc:annotation-driven />
+
+	<bean id="dataSourceActive"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>org.postgresql.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:postgresql://192.168.1.15:5432/adaheroku2</value>
+<!-- 			<value>jdbc:postgresql://192.168.1.15:5432/db_ada_develop</value> -->
+		</property>
+		<property name="username">
+			<value>postgres</value>
+		</property>
+		<property name="password">
+			<value>password</value>
+		</property>
+	</bean>
+	
+	<bean id="dataSourceOld"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>org.postgresql.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:postgresql://127.0.0.1:5432/ada_old</value>
+<!-- 			<value>jdbc:postgresql://192.168.1.15:5432/db_ada_develop</value> -->
+		</property>
+		<property name="username">
+			<value>postgres</value>
+		</property>
+		<property name="password">
+			<value>password</value>
+		</property>
+	</bean>
+	
+	<bean id="dataSource" class="verse.commonClass.CustomSessionFactoryBean">
+	   <property name="targetDataSources">
+	      <map key-type="java.lang.String">
+	         <entry key="dataSourceActive" value-ref="dataSourceActive"/>
+	         <entry key="dataSourceOld" value-ref="dataSourceOld"/>
+	      </map>
+	   </property>
+	   <property name="defaultTargetDataSource" ref="dataSourceActive"/>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>verse.model.vrs_users</value>
+				<value>verse.model.vrs_roles</value>
+				<value>verse.model.vrs_role_metas</value>
+				<value>verse.model.vrs_user_metas</value>
+				<value>verse.model.vrs_accounts</value>
+				<value>verse.model.vrs_companies</value>
+				<value>verse.model.vrs_company_metas</value>
+				<value>verse.model.vrs_roles</value>
+				<value>verse.model.vrs_pending_account</value>
+				<value>verse.model.vrs_logs</value>
+				<value>verse.model.vrs_rule_policies</value>
+				<value>verse.model.vrs_user_guide</value>
+				<value>verse.model.vrs_attendances</value>
+				<value>verse.model.vrs_addresses</value>
+				<value>verse.model.vrs_taxonomies</value>
+				<value>verse.model.RoleStaff</value>
+				<value>verse.model.RoleStaffInactive</value>
+				<value>verse.model.RoleName</value>
+				<value>verse.model.vrs_subscriptions</value>
+				<value>verse.model.vw_access_page_service</value>
+				<value>verse.model.vw_page_service</value>
+				<value>verse.menuList.model.ViewCashierHasAccount</value>
+				<value>verse.menuList.model.ViewCashierDashboard</value>
+				<value>verse.menuList.model.ViewTeacherDashboard</value>
+				
+				<!-- User Roles LImiting roles and access at accounts services -->
+				<value>verse.roleAccess.model.vrs_service</value>
+				<value>verse.roleAccess.model.vrs_page_registry</value>
+				<value>verse.roleAccess.model.vrs_access</value>
+				<value>verse.roleAccess.model.vw_access_service</value>
+				<value>verse.accountsadmin.companies.model.vw_vrs_role_metas_name
+				</value>
+				<value>verse.accountsadmin.companies.model.vw_accounts_list</value>
+				<!-- table for upload file or library file i mean -->
+				<value>verse.model.vrs_file_library</value>
+				
+				
+				<!-- location model -->
+				<value>verse.login.model.LogsLogin</value>
+				<value>verse.general.location.city.model.City</value>
+				<value>verse.general.location.regions.model.Regions</value>
+				<value>verse.general.location.district.model.District</value>
+				<value>verse.general.location.address.model.UserAddress</value>
+				
+				<!-- ada model -->
+				<value>ada.data_models.vin_catalogs</value>
+				<value>ada.data_models.vin_catalog_items</value>
+				<value>ada.data_models.vin_catalog_item_metas</value>
+				<value>ada.data_models.vin_pricing</value>
+				<value>ada.data_models.vin_stock_movement</value>
+				<value>ada.data_models.vin_stock_movement_arch</value>
+				<value>ada.data_models.vin_transfer_orders</value>
+				<value>ada.data_models.vin_transfer_order_details</value>
+				<value>ada.data_models.vin_taxonomies</value>
+				<value>ada.data_models.vin_catalogs_taxonomies</value>
+				<value>ada.data_models.vin_sales_orders</value>
+				<value>ada.data_models.vin_sales_order_details</value>
+				<value>ada.data_models.vin_invoices</value>
+				<value>ada.data_models.vin_invoice_details</value>
+				<value>ada.data_models.vin_delivery_order</value>
+				<value>ada.data_models.vin_delivery_order_details</value>
+				<value>ada.data_models.vin_return_orders</value>
+				<value>ada.data_models.vin_return_order_details</value>
+				<value>ada.data_models.vin_receive_orders</value>
+				<value>ada.data_models.vin_receive_order_details</value>
+				<value>ada.data_models.vin_rak</value>
+				<value>ada.data_models.vin_bills</value>
+				<value>ada.data_models.vin_bill_details</value>
+				<value>ada.data_models.vin_packinglist</value>
+				<value>ada.data_models.vin_packinglist_box</value>
+				<value>ada.data_models.vin_packinglist_box_detail</value>
+				<value>ada.data_models.vin_stock_adjustment</value>
+				
+				<value>ada.data_models.view_staff</value>
+				<value>ada.data_models.view_staff_donthasAccount</value>
+				<value>ada.data_models.view_staff_hasaccount</value>
+				<value>ada.data_models.vrs_positions</value>
+				
+				<value>ada.data_models.vw_stock_adjustment</value>
+				<value>ada.data_models.vw_stock_movement</value>
+				<value>ada.data_models.vw_transfer_order</value>
+				<value>ada.data_models.vw_person</value>
+				<value>ada.data_models.vw_warehouse</value>
+				<value>ada.data_models.vw_price_list</value>
+				<value>ada.data_models.vw_stock_with_package_code</value>
+				
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.jdbc.batch_sizesa">200</prop>
+<!-- 				<prop key="hibernate.cache.use_second_level_cache">false</prop> -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.sendgrid.net" />
+		<property name="port" value="587" />
+		<property name="username" value="app16566722@heroku.com" />
+		<property name="password" value="morra2012" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">false</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
+	<bean id="allParameter" class="verse.commonClass.getParameterBean">
+		<!--set time in seconds -->
+		<property name="timeShortCode" value="1200" />
+		<property name="timeSession" value="2400" />
+		<!--end set time in minutes -->
+		<property name="pageLogout" value="/login/1" />
+		<property name="pageShortCode" value="/shortCode/1" />
+		<!-- parameter for aws S3 uploadfile -->
+		<property name="awsaccess" value="AKIAJIWXXGKEQF47HOLA" />
+		<property name="awssecret" value="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" />
+		<property name="awsbucket" value="yck" />
+		<property name="awsDownloadLink" value="http://s3-ap-southeast-1.amazonaws.com/yck/" />
+		<property name="parentSchool" value="2" />
+		<!-- parameter for syncronize -->
+		<!--<property name="serverCenter" value="http://verse.herokuapp.com" /> -->
+		<property name="serverCenter" value="http://localhost:8080/verseserver" />
+		<property name="localComputer" value="http://localhost:8080/verse" />
+		<property name="appsFor" value="server" />
+		
+		
+		<property name="dataPerPage" value="5" />
+	</bean>
+
+
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	</bean>
+
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<value>/WEB-INF/tiles.xml</value>
+		</property>
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="20097152" />
+		<property name="maxInMemorySize" value="20097152" />
+	</bean>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+
+		<property name="basename" value="/WEB-INF/messages" />
+
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+
+	
+	<mvc:interceptors>
+		<bean class="verse.general.filter.SessionFilter" />
+	</mvc:interceptors>
+
+</beans>

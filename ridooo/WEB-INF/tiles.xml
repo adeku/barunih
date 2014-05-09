@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    
+
+	<definition name="base.definition" template="/WEB-INF/view/layout.jsp">
+		<put-attribute name="sidebar" value="/WEB-INF/view/layout/sidebar.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="option_javascript" value="" />
+	</definition>
+
+    <definition name="base404" template="/WEB-INF/view/layout404.jsp">
+        <put-attribute name="content" value="" />
+    </definition>
+
+    <definition name="page404"  extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/layout/page404.jsp" />
+    </definition>
+
+    <definition name="dashboard" extends="base.definition">
+        <put-attribute name="content"
+            value="/WEB-INF/view/common/dashboard.jsp" />
+    </definition>
+
+	<definition name="catalogs" extends="base.definition">
+		<put-attribute name="content"
+			value="/WEB-INF/view/ada/catalogs/catalogs.jsp" />
+			<put-attribute name="option_javascript" value="/WEB-INF/view/ada/catalogs/scriptCatalogs.jsp" />
+	</definition>
+	<definition name="ajaxcatalogdata" template="/WEB-INF/view/ada/catalogs/ajax-catalog-data.jsp" />
+	<definition name="ajaxcatalogdataforView" template="/WEB-INF/view/ada/catalogs/ajax-catalog-data-viewanother.jsp" />
+	<definition name="ajaxcatalogdataforViewWarehouse" template="/WEB-INF/view/ada/catalogs/ajax-catalog-data-inwarehouse-viewanother.jsp" />
+	<definition name="ajaxcatalogdataforViewWarehouseKodeBongkar" template="/WEB-INF/view/ada/catalogs/ajax-catalog-data-inwarehouse-viewanother-kodebongkar.jsp" />
+	
+	<definition name="pricelist" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/priceList/pricelist.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/priceList/pricelistScript.jsp" />
+	</definition>
+	<definition name="ajaxpricelistdata" template="/WEB-INF/view/ada/priceList/ajax-pricelist-data.jsp" />
+		
+	<definition name="customers" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/contacts/customers/customers.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/contacts/customers/customersScript.jsp" />
+	</definition>
+	<definition name="ajaxcustomersdata" template="/WEB-INF/view/contacts/customers/ajax-cutomer-data.jsp" />
+	
+	<definition name="customers_edit" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/contacts/customers/customers_edit.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/contacts/customers/customersEditScript.jsp" />
+	</definition>
+	
+	<definition name="customer_detail" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/contacts/customers/customers_detail.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/contacts/customers/customers_detail_script.jsp" />
+	</definition>
+	
+	<definition name="staffperson" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/accounts/staff/staff.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/accounts/staff/staffScript.jsp" />
+	</definition>
+	<definition name="ajaxstaffdata" template="/WEB-INF/view/accounts/staff/ajax-staff-data.jsp" />
+	
+	<definition name="accountslist" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/accounts/accounts/accountsList.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/accounts/accounts/scriptAccounts.jsp" />
+	</definition>
+	<definition name="ajaxaccountslist" template="/WEB-INF/view/accounts/accounts/ajax_accountsList.jsp" />
+	<definition name="ajaxaccountslistinRoleAccess" template="/WEB-INF/view/accounts/accounts/ajax_accountsList_inroleaccess.jsp" />
+	
+	<definition name="rolenaccess" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/accounts/rolenaccess/rolenaccessIndex.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/accounts/rolenaccess/scriptRolenaccess.jsp" />
+	</definition>
+	
+	<definition name="rolenaccessEdit" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/accounts/rolenaccess/rolenaccessEdit.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/accounts/rolenaccess/rolenaccessScript.jsp" />
+	</definition>
+	
+	<definition name="warehouses" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/warehouses/warehouse.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/warehouses/warehouseScript.jsp" />
+	</definition>
+	<definition name="warehousesDetail" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/warehouses/warehouseDetail.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/warehouses/scriptWarehouseDetail.jsp" />
+	</definition>
+	<definition name="ajaxwarehousedata" template="/WEB-INF/view/ada/warehouses/ajax-warehouse-data.jsp" />
+	<definition name="ajaxrakdata" template="/WEB-INF/view/ada/warehouses/ajax-rak-data.jsp" />
+	
+	<definition name="packinglist_create" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/packinglist/packinglist_create.jsp" />
+	</definition>
+
+		<definition name="viewImportCSV" extends="base.definition">
+		<put-attribute name="content"
+			value="/WEB-INF/view/ada/priceList/importCSV.jsp" />
+	</definition>
+	
+	<definition name="brands" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/brands/brands.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/brands/scriptBrands.jsp" />
+	</definition>
+	<definition name="ajaxbrandsdata" template="/WEB-INF/view/ada/brands/ajax-brands-data.jsp" />
+
+
+	<definition name="stock_move" extends="base.definition">
+		<put-attribute name="content"
+			value="/WEB-INF/view/ada/stocks/stock_move.jsp" />
+			<put-attribute name="option_javascript" value="/WEB-INF/view/ada/stocks/scriptStockMove.jsp" />
+	</definition>
+	<definition name="ajaxstockmovedata" template="/WEB-INF/view/ada/stocks/ajax-stockmove-data.jsp" />
+	
+	<definition name="stock_movement" extends="base.definition">
+		<put-attribute name="content"
+			value="/WEB-INF/view/ada/stocks/stock_movement.jsp" />
+			<put-attribute name="option_javascript" value="/WEB-INF/view/ada/stocks/scriptStockMovement.jsp" />
+	</definition>
+	<definition name="ajaxstockmovementdata" template="/WEB-INF/view/ada/stocks/ajax-stockmovement-data.jsp" />
+	
+
+	<definition name="categories" extends="base.definition">
+		<put-attribute name="content"
+			value="/WEB-INF/view/ada/categories/categories.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/categories/scriptCategories.jsp" />
+	</definition>
+	<definition name="ajaxcategoriesdata" template="/WEB-INF/view/ada/categories/ajax-category-data.jsp" />
+		
+	<definition name="transfer_order" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/stocks/transferOrder.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/stocks/scriptTransferOrder.jsp" />
+	</definition>
+	<definition name="ajaxtransferorderdata" template="/WEB-INF/view/ada/stocks/ajax-transferorder-data.jsp" />
+	<definition name="stocks.transferOrder_createform" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/stocks/transferOrder_createform.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/stocks/transferOrderAdd_script.jsp" />
+	</definition>
+	<definition name="stocks.transferOrder_detail" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/stocks/transferOrder_detail.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/stocks/transferOrderdetail_script.jsp" />
+	</definition>
+	
+	
+	<!-- sales section -->
+	<definition name="sales.invoice" extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/ada/sales/invoice/invoice_view.jsp" />
+        <put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/invoice/invoice_script.jsp" />
+    </definition>
+    <definition name="sales.ajaxdatainvoice" template="/WEB-INF/view/ada/sales/invoice/ajax_invoice_view.jsp" />
+    <definition name="sales.ajaxdatainvoiceforcustomer" template="/WEB-INF/view/ada/sales/invoice/ajax_invoice_viewcustomer.jsp" />
+
+	<definition name="sales.invoice.createform" extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/ada/sales/invoice/invoice_createform.jsp" />
+        <put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/invoice/invoice_script.jsp" />
+    </definition>
+
+	<definition name="sales.invoice.editform" extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/ada/sales/invoice/invoice_editform.jsp" />
+        <put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/invoice/invoice_script.jsp" />
+    </definition>
+
+	<definition name="sales.invoice.invoice_detail" extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/ada/sales/invoice/invoice_detail.jsp" />
+        <put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/invoice/invoice_script.jsp" />
+    </definition>
+
+	<definition name="sales.invoice.invoice_detai_retaill" extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/ada/sales/invoice/invoice_detai_retaill.jsp" />
+        <put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/invoice/invoice_script.jsp" />
+    </definition>
+    
+	<definition name="sales.deliveryorder" extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/ada/sales/deliveryorder/do_view.jsp" />
+        <put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/deliveryorder/do_script.jsp" />
+    </definition>
+    <definition name="sales.deliveryorder.ajaxdeliverydata" template="/WEB-INF/view/ada/sales/deliveryorder/ajaxdeliveryorderdata.jsp" />
+    <definition name="sales.deliveryorder.ajaxdeliverydatacourier" template="/WEB-INF/view/ada/sales/deliveryorder/ajaxdeliveryorderdatacustomer.jsp" />
+
+	<definition name="sales.deliveryorder.createform" extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/ada/sales/deliveryorder/do_createform.jsp" />
+        <put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/deliveryorder/do_script.jsp" />
+    </definition>
+
+	<definition name="sales.deliveryorder.editform" extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/ada/sales/deliveryorder/do_editform.jsp" />
+        <put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/deliveryorder/do_script.jsp" />
+    </definition>
+    
+	<definition name="sales.deliveryorder.do_detail" extends="base.definition">
+        <put-attribute name="content" value="/WEB-INF/view/ada/sales/deliveryorder/do_detail.jsp" />
+        <put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/deliveryorder/do_script.jsp" />
+    </definition>
+
+    <definition name="sales.sales-orders" extends="base.definition">
+		<put-attribute name="content"
+			value="/WEB-INF/view/ada/sales/sales-orders/salesOrderIndex.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/sales-orders/salesOrderScript.jsp" />
+	</definition>
+	<definition name="ajaxsalesordersdata" template="/WEB-INF/view/ada/sales/sales-orders/ajax-sales-orders-data.jsp" />
+	<definition name="ajaxsalesordersdata-sales" template="/WEB-INF/view/ada/sales/sales-orders/ajax-sales-orders-data-sales.jsp" />
+	
+	<definition name="sales.sales-orders.form" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/sales/sales-orders/salesOrderForm.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/sales-orders/salesOrderFormScript.jsp" />
+	</definition>
+	
+	<definition name="sales.sales-orders.detail" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/sales/sales-orders/salesOrderDetail.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/sales/sales-orders/salesOrderScript.jsp" />
+	</definition>
+	
+	<definition name="sales.packinglist" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/packinglist/packinglists.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/packinglist/packinglist_script.jsp" />
+	</definition>
+	
+	<definition name="sales.packinglist_create" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/packinglist/packinglist_create.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/packinglist/packinglist_script.jsp" />
+	</definition>
+	
+	<definition name="sales.packinglist_global" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/packinglist/packinglist_detail.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/packinglist/packinglist_script.jsp" />
+	</definition>
+	
+	<!-- report -->
+	<definition name="reports.index" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/report/report_index.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/report/report_script.jsp" />
+	</definition>
+	
+    <definition name="sales.sales-orders-invoice" template="/WEB-INF/view/ada/sales/sales-orders/salesOrderInvoice.jsp"  />
+    <definition name="sales.sales-orders-packinglist" template="/WEB-INF/view/ada/sales/sales-orders/salesOrderPackinglist.jsp"  />
+    
+    <definition name="sales.invoice.invoice-delivery" template="/WEB-INF/view/ada/sales/invoice/invoice_deliveryorder_view.jsp"  />
+    <definition name="sales.invoice.price-history" template="/WEB-INF/view/ada/sales/invoice/popup_historyprice.jsp"  />
+
+	<!-- archive -->
+	<definition name="archived.archive" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/archive/archive.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/archive/archive_script.jsp" />
+	</definition>
+	<!-- end of sales section -->
+	
+	<!-- return section -->
+
+	<definition name="return-orders" extends="base.definition">
+		<put-attribute name="content"
+			value="/WEB-INF/view/ada/return-orders/returnOrderIndex.jsp" />
+			<put-attribute name="option_javascript" value="/WEB-INF/view/ada/return-orders/returnOrderIndexScript.jsp" />
+	</definition>
+	<definition name="ajaxreturnordersdata" template="/WEB-INF/view/ada/return-orders/returnOrderIndexAjax.jsp" />
+	
+
+	<definition name="return-orders.form" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/return-orders/returnOrderForm.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/return-orders/returnOrderFormScript.jsp" />
+	</definition>
+	
+	<definition name="return-orders.detail" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/return-orders/returnOrderDetail.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/return-orders/returnOrderIndexScript.jsp" />
+	</definition>
+	
+	<!-- end of return section -->
+	
+	<!-- bill section -->
+	
+	<definition name="bills" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/bills/billIndex.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/bills/billIndexScript.jsp" />
+	</definition>
+	<definition name="ajaxbillsdata" template="/WEB-INF/view/ada/bills/billIndexScriptAjax.jsp" />
+	<definition name="ajaxbillsdataSupplier" template="/WEB-INF/view/ada/bills/billIndexScriptAjaxSuplier.jsp" />
+
+	<definition name="bills.form" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/bills/billForm.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/bills/billFormScript.jsp" />
+	</definition>
+	
+	<definition name="bills.detail" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/bills/billDetail.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/bills/billIndexScript.jsp" />
+	</definition>
+	
+	<!-- end of bill section -->
+	
+	<!-- receive section -->
+	
+	<definition name="receive-orders" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/receive-orders/receiveOrderIndex.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/receive-orders/receiveOrderScript.jsp" />
+	</definition>
+	<definition name="ajaxreceive-orders" template="/WEB-INF/view/ada/receive-orders/ajaxreceiveOrderIndex.jsp" />
+
+	<definition name="receive-orders.form" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/receive-orders/receiveOrderForm.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/receive-orders/receiveOrderFormScript.jsp" />
+	</definition>
+	
+	<definition name="receive-orders.detail" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/view/ada/receive-orders/receiveOrderDetail.jsp" />
+		<put-attribute name="option_javascript" value="/WEB-INF/view/ada/receive-orders/receiveOrderScript.jsp" />
+	</definition>
+	
+	<!-- end of receive section -->
+
+    <!-- without layout -->
+    <definition name="home" template="/WEB-INF/view/home.jsp" />
+    
+    <definition name="loginForm" template="/WEB-INF/view/login/login.jsp" />
+    
+    <definition name="showView" template="/WEB-INF/view/common/responseView.jsp" />
+    <!-- end without layout --> 
+	
+</tiles-definitions>
